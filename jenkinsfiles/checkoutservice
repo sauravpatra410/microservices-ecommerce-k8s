@@ -2,9 +2,9 @@ pipeline {
     agent any 
 
     environment  {
-        AWS_ACCOUNT_ID = credentials('ACCOUNT_ID')
+        AWS_ACCOUNT_ID = credentials('293405838915')
         AWS_ECR_REPO_NAME = "checkoutservice"
-        AWS_DEFAULT_REGION = 'ap-south-2'
+        AWS_DEFAULT_REGION = 'ap-south-1'
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/"
     }
 
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/Subratp12/microservices-ecommerce-k8s.git'
+                git branch: 'main', url: 'https://github.com/sauravpatra410/microservices-ecommerce-k8s.git'
             }
         }
         stage("Docker Image Build") {
